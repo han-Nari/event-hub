@@ -1,0 +1,17 @@
+my-app/
+│
+├── public/                # Static files (index.html, favicon, images)
+│
+├── src/                   # All source code lives here
+│   ├── assets/            # Images, fonts, icons, etc.
+│   ├── components/        # Reusable UI components (buttons, navbar, card, etc.)
+│   ├── pages/             # Page-level components (Home.jsx, About.jsx, etc.)
+│   ├── hooks/             # Custom React hooks (useAuth.js, useFetch.js, etc.)
+│   ├── context/           # React Context providers (AuthContext, ThemeContext)
+│   ├── services/          # API calls or helper functions (api.js, authService.js)
+│   ├── styles/            # Global CSS, SCSS, Tailwind config, etc.
+│   ├── App.js             # Root component
+│   ├── index.js           # Entry point (renders App into DOM)
+│
+├── package.json
+└── README.md

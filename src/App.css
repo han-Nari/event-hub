@@ -1,0 +1,27 @@
+@import "tailwindcss";
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+body {
+  background-color: #393e46;
+  height: auto;
+}
+
+@layer utilities {
+  input[type="date"]::-webkit-calendar-picker-indicator {
+    filter: invert(1); /* turns the icon white */
+  }
+}
+
+@layer base {
+  option {
+    @apply bg-[#393e46];
+  }
+
+  option:checked,
+  option:hover {
+    @apply bg-[#f96d00]; /* Custom hover & selected */
+  }
+}
