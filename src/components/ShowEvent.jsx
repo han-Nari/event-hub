@@ -11,7 +11,7 @@ export default function ShowEvent() {
   if (!event || event.length === 0) {
     return (
       <>
-        <div className="flex flex-col justify-center items-center">
+        <div className="flex flex-col justify-center items-center pb-10">
           <img src={noEvent} className="w-70 aspect-auto " alt="No Event" />
           <p className="text-xl  text-center text-white py-10 font-semibold font-mono">
             It’s quiet here… add something exciting!
