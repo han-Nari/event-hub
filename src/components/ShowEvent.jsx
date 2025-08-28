@@ -62,18 +62,17 @@ export default function ShowEvent() {
         </button>
       </section>
 
-      <section aria-label="today's event" className="overflow-hidden pb-5 ">
+      <section
+        aria-label="today's event"
+        className="overflow-hidden pb-5 grid gap-5 "
+      >
         {isActive === "events" && (
-          <ul className="flex flex-col">
+          <ul className="flex flex-col  h-[59vh] overflow-hidden md:h-[58vh]">
             <div className="flex justify-between items-center py-5">
-              <div className="flex gap-2 items-center text-white text-md hover:text-[#f96d00]">
-                <i class="fa-solid fa-plus-minus text-xl"></i>
-                <Link to="/createEvent">New Event</Link>
-              </div>
               <section aria-labelledby="search-bar">
                 <label
                   id="search-bar"
-                  className="flex justify-between w-[100%] bg-white p-2 px-4 rounded-[50px] md:p-1 md:px-3"
+                  className="flex justify-between w-[100%] bg-white p-1 px-4 rounded-[50px] md:p-1 md:px-3"
                 >
                   <input
                     className="outline-none text-sm w-full"
@@ -95,9 +94,16 @@ export default function ShowEvent() {
                   </button>
                 </label>
               </section>
+
+              <Link
+                to="/events"
+                className=" text-white font-semibold underline hover:text-[#f96d00]"
+              >
+                View All
+              </Link>
             </div>
 
-            <div className="md:h-[39vh]  overflow-hidden">
+            <div>
               {filteredEvents.map((events, id) => (
                 <li
                   key={id}
@@ -128,12 +134,6 @@ export default function ShowEvent() {
                 </li>
               ))}
             </div>
-            <Link
-              to="/events"
-              className="py-5 text-white font-semibold underline hover:text-[#f96d00]"
-            >
-              View All
-            </Link>
           </ul>
         )}
       </section>

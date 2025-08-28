@@ -38,19 +38,19 @@ export default function MyHeader() {
         </p>
 
         <nav
-          className={`flex flex-col gap-4 [&>li]:list-none  absolute w-full h-100 left-0 transition-all duration-300 bg-[#222831] rounded-2xl p-5 py-25 [&>*]:text-md   
+          className={`flex flex-col gap-4 [&>li>a:hover]:text-[#f96d00] [&>li]:list-none  absolute w-full h-100 left-0 transition-all duration-300 bg-[#222831] rounded-2xl p-5 py-25 [&>*]:text-md   
         ${
           isOpen ? "top-0" : "top-[-500%]"
         } md:top-0 md:bg-transparent md:static md:p-0 md:[&>li]:text-md md:transition-none`}
         >
           <li className="grid gap-5">
-            <p className="text-white/80 text-[14px] font-semibold">Dashboard</p>
+            <p className="text-white/80 text-[14px] font-regular">Dashboard</p>
             <NavLink to="/" className={({ isActive }) => links(isActive)}>
               <div className="flex gap-3 px-2">
                 <span>
                   <i class="fa-solid fa-gauge"></i>
                 </span>
-                <span>Dashboard</span>
+                <span className="font-semibold">Dashboard</span>
               </div>
             </NavLink>
           </li>
@@ -65,7 +65,8 @@ export default function MyHeader() {
               </div>
             </NavLink>
           </li> */}
-          <li>
+          <li className="grid gap-5">
+            <p className="text-white/80 text-[14px] font-regular">Events</p>
             <NavLink
               to="/CreateEvent"
               className={({ isActive }) => links(isActive)}
@@ -74,7 +75,29 @@ export default function MyHeader() {
                 <span>
                   <i class="fa-solid fa-plus-minus"></i>
                 </span>
-                <span>New Event</span>
+                <span className="font-semibold">New Event</span>
+              </div>
+            </NavLink>
+          </li>
+
+          <li className="grid gap-5">
+            <NavLink
+              to="/progress"
+              className={({ isActive }) => links(isActive)}
+            >
+              <div className="flex gap-3 px-2">
+                <span className="font-semibold">🛠️ In Progress</span>
+              </div>
+            </NavLink>
+          </li>
+
+          <li className="grid gap-5">
+            <NavLink
+              to="/inprogress"
+              className={({ isActive }) => links(isActive)}
+            >
+              <div className="flex gap-3 px-2">
+                <span className="font-semibold">🛠️ In Progress</span>
               </div>
             </NavLink>
           </li>
