@@ -5,7 +5,8 @@ import noEvent from "../assets/event.png";
 import { useState } from "react";
 
 export default function ShowEvent() {
-  const { event, eventRemove } = useEvent();
+  const { event, eventRemove, searchQuery, setSearchQuery, filteredEvents } =
+    useEvent();
   const [isActive, setIsActive] = useState("events");
 
   if (!event || event.length === 0) {
@@ -64,26 +65,45 @@ export default function ShowEvent() {
       <section aria-label="today's event" className="overflow-hidden pb-5 ">
         {isActive === "events" && (
           <ul className="flex flex-col">
-            <div className="flex justify-between items-center">
+            <div className="flex justify-between items-center py-5">
               <div className="flex gap-2 items-center text-white text-md hover:text-[#f96d00]">
                 <i class="fa-solid fa-plus-minus text-xl"></i>
                 <Link to="/createEvent">New Event</Link>
               </div>
-              <Link
-                to="/events"
-                className="text-white text-end underline py-5 w-fit font-semibold hover:text-[#f96d00] "
-              >
-                View All
-              </Link>
+              <section aria-labelledby="search-bar">
+                <label
+                  id="search-bar"
+                  className="flex justify-between w-[100%] bg-white p-2 px-4 rounded-[50px] md:p-1 md:px-3"
+                >
+                  <input
+                    className="outline-none text-sm w-full"
+                    type="text"
+                    placeholder="Seach Event"
+                    value={searchQuery}
+                    onChange={(e) => setSearchQuery(e.target.value)}
+                  />
+                  <button role="btn-search">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      height="24px"
+                      viewBox="0 -960 960 960"
+                      width="24px"
+                      fill="#000000"
+                    >
+                      <path d="M784-120 532-372q-30 24-69 38t-83 14q-109 0-184.5-75.5T120-580q0-109 75.5-184.5T380-840q109 0 184.5 75.5T640-580q0 44-14 83t-38 69l252 252-56 56ZM380-400q75 0 127.5-52.5T560-580q0-75-52.5-127.5T380-760q-75 0-127.5 52.5T200-580q0 75 52.5 127.5T380-400Z" />
+                    </svg>
+                  </button>
+                </label>
+              </section>
             </div>
 
-            <div className="md:h-[49vh]  overflow-hidden">
-              {event.map((events, id) => (
+            <div className="md:h-[39vh]  overflow-hidden">
+              {filteredEvents.map((events, id) => (
                 <li
                   key={id}
-                  className="flex justify-between gap-2 p-2 bg-white/5 px-5 border-l-5 border-[#f96d00]  [&>*>button]:cursor-pointer hover:bg-white/10 "
+                  className="flex justify-between gap-2 p-2 bg-white/5 px-5 border-l-5 border-[#f96d00] [&>*>button]:cursor-pointer hover:bg-white/10"
                 >
-                  <div className=" flex gap-6 text-white">
+                  <div className="flex gap-6 text-white">
                     <span className="grid place-content-center text-2xl">
                       {events.categories}
                     </span>
@@ -98,16 +118,22 @@ export default function ShowEvent() {
                   </div>
                   <div className="flex gap-4">
                     <button aria-label="bookmark">
-                      <i class="fa-regular fa-bookmark text-white/80 hover:text-white"></i>
+                      <i className="fa-regular fa-bookmark text-white/80 hover:text-white"></i>
                     </button>
 
                     <button onClick={() => eventRemove(id)}>
-                      <i class="fa-solid fa-trash text-white/80 hover:text-red-500"></i>
+                      <i className="fa-solid fa-trash text-white/80 hover:text-red-500"></i>
                     </button>
                   </div>
                 </li>
               ))}
             </div>
+            <Link
+              to="/events"
+              className="py-5 text-white font-semibold underline hover:text-[#f96d00]"
+            >
+              View All
+            </Link>
           </ul>
         )}
       </section>

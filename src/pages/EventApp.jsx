@@ -16,7 +16,7 @@ export default function EventApp() {
     <div className="flex flex-col md:grid h-[100vh] md:grid-cols-12 md:grid-rows-12 md:gap-0 ">
       <MyHeader />
 
-      <main className="flex flex-col gap-10  md:col-span-7 md:row-span-12">
+      <main className="flex flex-col gap-10 md:gap-8  md:col-span-7 md:row-span-12">
         <section aria-labelledby="guest">
           <div className=" min-h-[10rem] overflow-hidden bg-gradient-to-r from-orange-500/90 to-orange-300/90 p-6 flex items-center justify-between shadow-lg">
             <div className="flex  flex-col gap-5 ">

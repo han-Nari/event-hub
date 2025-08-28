@@ -37,30 +37,6 @@ export default function MyHeader() {
           The easiest way to plan your events.
         </p>
 
-        <section aria-labelledby="search-bar">
-          <label
-            id="search-bar"
-            className="flex justify-between w-[100%] bg-white p-2 px-4 rounded-[50px] md:p-1 md:px-4"
-          >
-            <input
-              className="outline-none text-sm w-full"
-              type="text"
-              placeholder="Seach Event"
-            />
-            <button role="btn-search">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                height="24px"
-                viewBox="0 -960 960 960"
-                width="24px"
-                fill="#000000"
-              >
-                <path d="M784-120 532-372q-30 24-69 38t-83 14q-109 0-184.5-75.5T120-580q0-109 75.5-184.5T380-840q109 0 184.5 75.5T640-580q0 44-14 83t-38 69l252 252-56 56ZM380-400q75 0 127.5-52.5T560-580q0-75-52.5-127.5T380-760q-75 0-127.5 52.5T200-580q0 75 52.5 127.5T380-400Z" />
-              </svg>
-            </button>
-          </label>
-        </section>
-
         <nav
           className={`flex flex-col gap-4 [&>li]:list-none  absolute w-full h-100 left-0 transition-all duration-300 bg-[#222831] rounded-2xl p-5 py-25 [&>*]:text-md   
         ${

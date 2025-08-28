@@ -21,6 +21,7 @@ export default function useEventScript() {
 
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
+  const [searchQuery, setSearchQuery] = useState("");
 
   // Save Events
   useEffect(() => {
@@ -86,11 +87,25 @@ export default function useEventScript() {
     }
   };
 
+  // Search Query
+  const filteredEvents = event.filter((ev) => {
+    const query = searchQuery.toLowerCase();
+    return (
+      ev.eName.toLowerCase().includes(query) ||
+      ev.orgName.toLowerCase().includes(query) ||
+      ev.loc.toLowerCase().includes(query) ||
+      ev.categories.toLowerCase().includes(query)
+    );
+  });
+
   return {
     event,
     newEvent,
     error,
     success,
+    searchQuery,
+    setSearchQuery,
+    filteredEvents,
     eventInput,
     addEvent,
     eventRemove,
